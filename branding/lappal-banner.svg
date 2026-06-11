@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 230">
+  <defs>
+    <radialGradient id="bn-glow" gradientUnits="userSpaceOnUse" cx="440" cy="105" r="330">
+      <stop offset="0" stop-color="#2a1655"/>
+      <stop offset="0.55" stop-color="#150b2c"/>
+      <stop offset="1" stop-color="#07040d"/>
+    </radialGradient>
+    <linearGradient id="bn-a" gradientUnits="userSpaceOnUse" x1="409" y1="22" x2="434" y2="44">
+      <stop offset="0" stop-color="#5ee6ff"/>
+      <stop offset="1" stop-color="#9d6bff"/>
+    </linearGradient>
+    <linearGradient id="bn-b" gradientUnits="userSpaceOnUse" x1="451" y1="58" x2="426" y2="36">
+      <stop offset="0" stop-color="#ff6bd6"/>
+      <stop offset="1" stop-color="#9d6bff"/>
+    </linearGradient>
+    <radialGradient id="bn-core" gradientUnits="userSpaceOnUse" cx="430" cy="40" r="16">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.6" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e9e1ff"/>
+    </radialGradient>
+    <linearGradient id="bn-text" gradientUnits="userSpaceOnUse" x1="330" y1="135" x2="550" y2="135">
+      <stop offset="0" stop-color="#5ee6ff"/>
+      <stop offset="0.5" stop-color="#9d6bff"/>
+      <stop offset="1" stop-color="#ff6bd6"/>
+    </linearGradient>
+  </defs>
+  <rect width="880" height="230" rx="18" fill="url(#bn-glow)"/>
+  <circle cx="92" cy="186" r="58" fill="none" stroke="#5ee6ff" stroke-width="2" opacity="0.16"/>
+  <circle cx="118" cy="160" r="30" fill="none" stroke="#9d6bff" stroke-width="2" opacity="0.2"/>
+  <circle cx="784" cy="50" r="62" fill="none" stroke="#ff6bd6" stroke-width="2" opacity="0.14"/>
+  <circle cx="756" cy="84" r="26" fill="none" stroke="#9d6bff" stroke-width="2" opacity="0.2"/>
+  <circle cx="240" cy="60" r="3" fill="#5ee6ff" opacity="0.5"/>
+  <circle cx="660" cy="170" r="3" fill="#ff6bd6" opacity="0.5"/>
+  <circle cx="170" cy="110" r="2" fill="#9d6bff" opacity="0.6"/>
+  <circle cx="710" cy="120" r="2" fill="#9d6bff" opacity="0.6"/>
+  <circle cx="423" cy="35" r="18" fill="url(#bn-a)"/>
+  <circle cx="437" cy="45" r="18" fill="url(#bn-b)"/>
+  <path d="M439.19 27.14 A18 18 0 0 1 420.81 52.86 A18 18 0 0 1 439.19 27.14 Z" fill="url(#bn-core)"/>
+  <text x="440" y="150" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, sans-serif" font-size="52" font-weight="300" letter-spacing="11" fill="url(#bn-text)">lappal</text>
+  <text x="440" y="192" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, sans-serif" font-size="14" font-weight="400" letter-spacing="5" fill="#9a8fc0">PRESS KEYS &#183; MAKE LIGHT AND SOUND</text>
+</svg>

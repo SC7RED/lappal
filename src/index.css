@@ -106,6 +106,24 @@ canvas {
   pointer-events: none;
 }
 
+.overlay-mark {
+  width: 76px;
+  height: 76px;
+  margin-bottom: 4px;
+  filter: drop-shadow(0 0 26px rgba(157, 107, 255, 0.55));
+  animation: float 5.5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
 .overlay-title {
   font-size: clamp(2.6rem, 8vw, 4.5rem);
   font-weight: 200;

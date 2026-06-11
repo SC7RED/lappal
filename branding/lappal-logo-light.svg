@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 96">
+  <defs>
+    <linearGradient id="logol-a" gradientUnits="userSpaceOnUse" x1="27" y1="30" x2="52" y2="52">
+      <stop offset="0" stop-color="#33c8f0"/>
+      <stop offset="1" stop-color="#8453f5"/>
+    </linearGradient>
+    <linearGradient id="logol-b" gradientUnits="userSpaceOnUse" x1="69" y1="66" x2="44" y2="44">
+      <stop offset="0" stop-color="#f24cc3"/>
+      <stop offset="1" stop-color="#8453f5"/>
+    </linearGradient>
+    <radialGradient id="logol-core" gradientUnits="userSpaceOnUse" cx="48" cy="48" r="16">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.6" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#efe9ff"/>
+    </radialGradient>
+  </defs>
+  <circle cx="41" cy="43" r="18" fill="url(#logol-a)"/>
+  <circle cx="55" cy="53" r="18" fill="url(#logol-b)"/>
+  <path d="M57.19 35.14 A18 18 0 0 1 38.81 60.86 A18 18 0 0 1 57.19 35.14 Z" fill="url(#logol-core)"/>
+  <text x="106" y="63" font-family="'Segoe UI', system-ui, -apple-system, sans-serif" font-size="46" font-weight="350" letter-spacing="9" fill="#241a3d">lappal</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 96">
+  <defs>
+    <linearGradient id="logo-a" gradientUnits="userSpaceOnUse" x1="27" y1="30" x2="52" y2="52">
+      <stop offset="0" stop-color="#5ee6ff"/>
+      <stop offset="1" stop-color="#9d6bff"/>
+    </linearGradient>
+    <linearGradient id="logo-b" gradientUnits="userSpaceOnUse" x1="69" y1="66" x2="44" y2="44">
+      <stop offset="0" stop-color="#ff6bd6"/>
+      <stop offset="1" stop-color="#9d6bff"/>
+    </linearGradient>
+    <radialGradient id="logo-core" gradientUnits="userSpaceOnUse" cx="48" cy="48" r="16">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.6" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e9e1ff"/>
+    </radialGradient>
+    <linearGradient id="logo-text" gradientUnits="userSpaceOnUse" x1="106" y1="48" x2="316" y2="48">
+      <stop offset="0" stop-color="#5ee6ff"/>
+      <stop offset="0.5" stop-color="#9d6bff"/>
+      <stop offset="1" stop-color="#ff6bd6"/>
+    </linearGradient>
+  </defs>
+  <circle cx="41" cy="43" r="18" fill="url(#logo-a)"/>
+  <circle cx="55" cy="53" r="18" fill="url(#logo-b)"/>
+  <path d="M57.19 35.14 A18 18 0 0 1 38.81 60.86 A18 18 0 0 1 57.19 35.14 Z" fill="url(#logo-core)"/>
+  <text x="106" y="63" font-family="'Segoe UI', system-ui, -apple-system, sans-serif" font-size="46" font-weight="300" letter-spacing="9" fill="url(#logo-text)">lappal</text>
+</svg>

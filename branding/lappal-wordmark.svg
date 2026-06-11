@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 64">
+  <defs>
+    <linearGradient id="wm-text" gradientUnits="userSpaceOnUse" x1="14" y1="32" x2="246" y2="32">
+      <stop offset="0" stop-color="#5ee6ff"/>
+      <stop offset="0.5" stop-color="#9d6bff"/>
+      <stop offset="1" stop-color="#ff6bd6"/>
+    </linearGradient>
+  </defs>
+  <text x="130" y="47" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, sans-serif" font-size="46" font-weight="300" letter-spacing="9" fill="url(#wm-text)">lappal</text>
+</svg>
