@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
 import { CanvasStage } from './components/CanvasStage'
+import { Pads } from './components/Pads'
 import { StartOverlay } from './components/StartOverlay'
 import { soundEngine } from './audio/soundEngine'
 import { useKeyboard } from './interaction/useKeyboard'
@@ -19,6 +20,7 @@ function App() {
   return (
     <>
       <CanvasStage />
+      <Pads onPress={begin} />
       <StartOverlay visible={!interacted} onBegin={begin} />
     </>
   )
