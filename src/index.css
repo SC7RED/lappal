@@ -1,0 +1,28 @@
+:root {
+  --bg: #07040d;
+  --ink: #f0eaff;
+  --ink-dim: rgba(240, 234, 255, 0.55);
+  --violet: #9d6bff;
+  --cyan: #5ee6ff;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+canvas {
+  display: block;
+}
