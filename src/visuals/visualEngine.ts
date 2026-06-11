@@ -27,13 +27,13 @@ class VisualEngine {
     this.idle = null
   }
 
-  trigger(pad: PadConfig): void {
+  trigger(pad: PadConfig, at?: { x: number; y: number }): void {
     const p = this.p
     // p5 defers setup() to the window load event, so the canvas may not exist
     // yet even though the instance does; shapes built then would be zero-sized.
     if (!p || p.width === 0) return
-    const x = p.random(p.width * 0.15, p.width * 0.85)
-    const y = p.random(p.height * 0.18, p.height * 0.82)
+    const x = at?.x ?? p.random(p.width * 0.15, p.width * 0.85)
+    const y = at?.y ?? p.random(p.height * 0.18, p.height * 0.82)
     this.animations.push(createAnimation(pad, p, x, y, driftHue(p, pad.hue)))
     if (this.animations.length > MAX_ANIMATIONS) this.animations.shift()
   }

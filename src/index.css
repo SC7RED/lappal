@@ -37,6 +37,8 @@ canvas {
   inset: 0;
   z-index: 5;
   display: none;
+  /* taps in the gaps between pads fall through to the canvas */
+  pointer-events: none;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 1fr;
   gap: 12px;
@@ -51,6 +53,7 @@ canvas {
 }
 
 .pad {
+  pointer-events: auto;
   border: 1px solid hsl(var(--pad-hue) 90% 65% / 0.65);
   border-radius: 16px;
   background: hsl(var(--pad-hue) 80% 55% / 0.08);
@@ -134,39 +137,56 @@ canvas {
   }
 }
 
-.hint {
+.key-strip {
   position: fixed;
-  left: 24px;
-  bottom: 20px;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 6;
-  font-size: 0.8rem;
-  letter-spacing: 0.3em;
-  color: var(--ink-dim);
-  opacity: 0;
-  pointer-events: none;
+  display: flex;
+  gap: 8px;
 }
 
-.hint-active {
-  animation: hint-flash 8s ease forwards;
+.key-chip {
+  width: 38px;
+  height: 38px;
+  border: 1px solid hsl(var(--pad-hue) 90% 65% / 0.5);
+  border-radius: 10px;
+  background: hsl(var(--pad-hue) 80% 55% / 0.07);
+  color: hsl(var(--pad-hue) 90% 82%);
+  font-family: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  opacity: 0.55;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition:
+    opacity 0.25s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.12s ease;
 }
 
-@keyframes hint-flash {
-  0% {
-    opacity: 0;
-  }
-  12% {
-    opacity: 1;
-  }
-  70% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+/* wider gap separates the percussion keys (q w e) from the melodic row */
+.key-chip:nth-child(10) {
+  margin-left: 16px;
+}
+
+.key-chip:hover {
+  opacity: 1;
+}
+
+.key-chip-lit {
+  opacity: 1;
+  background: hsl(var(--pad-hue) 85% 60% / 0.3);
+  box-shadow: 0 0 16px hsl(var(--pad-hue) 90% 60% / 0.45);
+  transform: translateY(-3px) scale(1.06);
 }
 
 @media (hover: none) and (pointer: coarse), (max-width: 640px) {
-  .hint {
+  .key-strip {
     display: none;
   }
 }

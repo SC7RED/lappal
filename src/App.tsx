@@ -1,9 +1,11 @@
 import { useCallback, useState } from 'react'
 import { CanvasStage } from './components/CanvasStage'
-import { Hint } from './components/Hint'
+import { KeyStrip } from './components/KeyStrip'
 import { Pads } from './components/Pads'
 import { StartOverlay } from './components/StartOverlay'
 import { soundEngine } from './audio/soundEngine'
+import { triggerAt } from './interaction/trigger'
+import type { TriggerPoint } from './interaction/trigger'
 import { useKeyboard } from './interaction/useKeyboard'
 
 function App() {
@@ -16,13 +18,21 @@ function App() {
     setInteracted(true)
   }, [])
 
+  const pressCanvas = useCallback(
+    (point: TriggerPoint) => {
+      begin()
+      triggerAt(point)
+    },
+    [begin],
+  )
+
   useKeyboard(begin)
 
   return (
     <>
-      <CanvasStage />
+      <CanvasStage onPress={pressCanvas} />
       <Pads onPress={begin} />
-      <Hint active={interacted} />
+      <KeyStrip onPress={begin} />
       <StartOverlay visible={!interacted} onBegin={begin} />
     </>
   )
