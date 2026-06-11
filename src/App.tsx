@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
 import { CanvasStage } from './components/CanvasStage'
+import { Hint } from './components/Hint'
 import { Pads } from './components/Pads'
 import { StartOverlay } from './components/StartOverlay'
 import { soundEngine } from './audio/soundEngine'
@@ -21,6 +22,7 @@ function App() {
     <>
       <CanvasStage />
       <Pads onPress={begin} />
+      <Hint active={interacted} />
       <StartOverlay visible={!interacted} onBegin={begin} />
     </>
   )

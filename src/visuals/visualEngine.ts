@@ -2,6 +2,7 @@ import p5 from 'p5'
 import type { PadConfig } from '../config/soundMap'
 import type { Animation } from './animation'
 import { createAnimation } from './shapes'
+import { IdleField } from './idle'
 import { BG_BRI, BG_HUE, BG_SAT, TRAIL_ALPHA, driftHue } from './palette'
 
 const MAX_ANIMATIONS = 48
@@ -12,6 +13,7 @@ const MAX_DT = 50
 class VisualEngine {
   private p: p5 | null = null
   private animations: Animation[] = []
+  private idle: IdleField | null = null
 
   mount(container: HTMLElement): void {
     if (this.p) return
@@ -22,6 +24,7 @@ class VisualEngine {
     this.p?.remove()
     this.p = null
     this.animations = []
+    this.idle = null
   }
 
   trigger(pad: PadConfig): void {
@@ -38,6 +41,7 @@ class VisualEngine {
       p.createCanvas(p.windowWidth, p.windowHeight)
       p.colorMode(p.HSB, 360, 100, 100, 100)
       p.background(BG_HUE, BG_SAT, BG_BRI)
+      this.idle = new IdleField(p)
     }
 
     p.windowResized = () => {
@@ -50,6 +54,7 @@ class VisualEngine {
       p.background(BG_HUE, BG_SAT, BG_BRI, TRAIL_ALPHA)
       p.blendMode(p.ADD)
       const dt = Math.min(p.deltaTime, MAX_DT)
+      this.idle?.updateAndDraw(p, dt)
       for (const animation of this.animations) {
         animation.update(dt)
         animation.draw(p)

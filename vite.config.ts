@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    // p5 is a single large library loaded up front; splitting it buys nothing.
-    chunkSizeWarningLimit: 1400,
+    // p5 and tone are large libraries needed up front; splitting buys nothing.
+    chunkSizeWarningLimit: 1600,
   },
 })

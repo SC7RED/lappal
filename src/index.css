@@ -131,3 +131,40 @@ canvas {
     opacity: 1;
   }
 }
+
+.hint {
+  position: fixed;
+  left: 24px;
+  bottom: 20px;
+  z-index: 6;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  color: var(--ink-dim);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hint-active {
+  animation: hint-flash 8s ease forwards;
+}
+
+@keyframes hint-flash {
+  0% {
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (hover: none) and (pointer: coarse), (max-width: 640px) {
+  .hint {
+    display: none;
+  }
+}
