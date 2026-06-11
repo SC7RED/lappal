@@ -1,5 +1,7 @@
+import { CanvasStage } from './components/CanvasStage'
+
 function App() {
-  return null
+  return <CanvasStage />
 }
 
 export default App

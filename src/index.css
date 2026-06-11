@@ -26,3 +26,8 @@ body,
 canvas {
   display: block;
 }
+
+.canvas-stage {
+  position: fixed;
+  inset: 0;
+}
