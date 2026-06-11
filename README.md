@@ -97,3 +97,10 @@ wordmark, and the README banner — all hand-built SVG in the app's palette.
 | | |
 | --- | --- |
 | ![mark](branding/lappal-mark.svg) | ![logo](branding/lappal-logo.svg) |
+
+## 📄 License
+
+Copyright &copy; 2026 SC7RED. Licensed under the
+[PolyForm Strict License 1.0.0](LICENSE.md) — you may view and run this code
+privately for noncommercial purposes only; no modification, redistribution,
+or commercial use without written permission.
