@@ -8,7 +8,12 @@ export function StartOverlay({ visible, onBegin }: StartOverlayProps) {
     <button
       type="button"
       className={visible ? 'overlay' : 'overlay overlay-hidden'}
-      onClick={onBegin}
+      onClick={(e) => {
+        // Drop focus before aria-hidden lands on this element, otherwise
+        // Chrome blocks the attribute and warns about retained focus.
+        e.currentTarget.blur()
+        onBegin()
+      }}
       tabIndex={visible ? 0 : -1}
       aria-hidden={!visible}
     >

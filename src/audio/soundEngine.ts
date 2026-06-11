@@ -59,19 +59,26 @@ class SoundEngine {
   play(sound: SoundSpec): void {
     if (!this.isReady) return
     const now = Tone.now()
-    switch (sound.type) {
-      case 'note':
-        this.synth?.triggerAttackRelease(sound.note, '8n', now)
-        break
-      case 'kick':
-        this.kick?.triggerAttackRelease('C1', '8n', now)
-        break
-      case 'tom':
-        this.tom?.triggerAttackRelease('G2', '8n', now)
-        break
-      case 'hat':
-        this.hat?.triggerAttackRelease('16n', now)
-        break
+    // Two hits on the same drum within one audio render quantum resolve to an
+    // identical start time, which Tone rejects with a throw; drop that hit
+    // rather than letting the error escape the input handler.
+    try {
+      switch (sound.type) {
+        case 'note':
+          this.synth?.triggerAttackRelease(sound.note, '8n', now)
+          break
+        case 'kick':
+          this.kick?.triggerAttackRelease('C1', '8n', now)
+          break
+        case 'tom':
+          this.tom?.triggerAttackRelease('G2', '8n', now)
+          break
+        case 'hat':
+          this.hat?.triggerAttackRelease('16n', now)
+          break
+      }
+    } catch {
+      // simultaneous duplicate trigger — safe to ignore
     }
   }
 }

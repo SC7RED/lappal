@@ -29,7 +29,9 @@ class VisualEngine {
 
   trigger(pad: PadConfig): void {
     const p = this.p
-    if (!p) return
+    // p5 defers setup() to the window load event, so the canvas may not exist
+    // yet even though the instance does; shapes built then would be zero-sized.
+    if (!p || p.width === 0) return
     const x = p.random(p.width * 0.15, p.width * 0.85)
     const y = p.random(p.height * 0.18, p.height * 0.82)
     this.animations.push(createAnimation(pad, p, x, y, driftHue(p, pad.hue)))
@@ -47,6 +49,8 @@ class VisualEngine {
     p.windowResized = () => {
       p.resizeCanvas(p.windowWidth, p.windowHeight)
       p.background(BG_HUE, BG_SAT, BG_BRI)
+      // Reseed so dots cover the new area instead of clustering in the old one.
+      this.idle = new IdleField(p)
     }
 
     p.draw = () => {

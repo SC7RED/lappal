@@ -9,7 +9,7 @@ export class Comet extends BaseAnimation {
   private readonly omega: number
   private readonly startAngle: number
   private readonly headSize: number
-  private readonly trail: Array<{ x: number; y: number }> = []
+  private readonly trail: Array<{ x: number; y: number; t: number }> = []
 
   constructor(p: p5, x: number, y: number, hue: number) {
     super(x, y, hue, 1700)
@@ -32,8 +32,12 @@ export class Comet extends BaseAnimation {
   }
 
   protected tick(_dt: number): void {
-    this.trail.push(this.headAt(this.age))
-    if (this.trail.length > 22) this.trail.shift()
+    // Cap the trail by age, not point count, so its length on screen is the
+    // same at any frame rate.
+    this.trail.push({ ...this.headAt(this.age), t: this.age })
+    while (this.trail.length > 0 && this.age - this.trail[0].t > 360) {
+      this.trail.shift()
+    }
   }
 
   draw(p: p5): void {

@@ -6,9 +6,15 @@ export function useKeyboard(onAnyKey: () => void): void {
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       // Held keys fire once; browser shortcuts (ctrl+r etc.) pass through.
-      if (e.repeat || e.metaKey || e.ctrlKey || e.altKey) return
+      // Escape is excluded because it never grants the user activation the
+      // AudioContext needs — letting it through would dismiss the overlay
+      // while audio stays locked.
+      if (e.repeat || e.metaKey || e.ctrlKey || e.altKey || e.key === 'Escape') return
       onAnyKey()
-      const id = e.key.toLowerCase()
+      // Prefer the physical key (works on non-Latin layouts), fall back to
+      // the produced character (covers remapped layouts like AZERTY).
+      const code = e.code.startsWith('Key') ? e.code.slice(3).toLowerCase() : ''
+      const id = PAD_MAP[code] ? code : e.key.toLowerCase()
       if (PAD_MAP[id]) {
         e.preventDefault()
         trigger(id)
