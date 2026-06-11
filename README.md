@@ -7,6 +7,8 @@
 Press a key — a neon animation blooms across the screen with a matching sound.
 Every combination harmonizes. Every press looks a little different.
 
+**[▶ Play it live](https://dennis.delenyan.com/lappal/)**
+
 ![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white)

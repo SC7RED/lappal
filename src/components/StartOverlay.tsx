@@ -17,7 +17,13 @@ export function StartOverlay({ visible, onBegin }: StartOverlayProps) {
       tabIndex={visible ? 0 : -1}
       aria-hidden={!visible}
     >
-      <img className="overlay-mark" src="/lappal-mark.svg" alt="" width="76" height="76" />
+      <img
+        className="overlay-mark"
+        src={`${import.meta.env.BASE_URL}lappal-mark.svg`}
+        alt=""
+        width="76"
+        height="76"
+      />
       <span className="overlay-title">lappal</span>
       <span className="overlay-sub">click or press any key to begin</span>
     </button>
