@@ -1,23 +1,52 @@
-# lappal
+<div align="center">
 
-An interactive audiovisual keyboard inspired by [patatap.com](https://patatap.com). Press a key and a neon animation blooms across the screen with a matching sound — every combination harmonizes, every press looks a little different. Dark, trippy, purple-to-blue.
+![lappal](branding/lappal-banner.svg)
 
-Built with Vite, React, TypeScript, [p5.js](https://p5js.org) (visuals), and [Tone.js](https://tonejs.github.io) (audio).
+**An interactive audiovisual keyboard inspired by [patatap.com](https://patatap.com).**
 
-## Controls
+Press a key — a neon animation blooms across the screen with a matching sound.
+Every combination harmonizes. Every press looks a little different.
+
+![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white)
+![p5.js](https://img.shields.io/badge/p5.js-1.x-ED225D?logo=p5dotjs&logoColor=white)
+![Tone.js](https://img.shields.io/badge/Tone.js-15-F734D7)
+
+</div>
+
+## ✨ What it does
+
+- **12 keys, 12 distinct visuals** — rings, bursts, polygons, rays, spirals, comets and more, glowing additively over a deep-purple canvas with soft motion trails
+- **Impossible to play a wrong note** — the melodic keys are mapped to C&#9839; minor pentatonic, so any mash of keys harmonizes
+- **Percussion row** — kick, hat, and tom round out the kit, all running through a shared reverb + delay bus
+- **Click anywhere** — pressing the canvas fires a random pad right where you clicked
+- **Key strip** — a glowing key map along the bottom lights up with every press, and is clickable too
+- **Works on phones** — touch devices get a tappable pad grid instead of the keyboard
+- **Never a dead screen** — a faint field of drifting, twinkling particles keeps the canvas alive between presses
+
+## 🎹 Controls
 
 Click or press any key to start the audio, then play:
 
-| Keys | Sound | Visuals |
-| --- | --- | --- |
-| `A S D F G H J K L` | C# minor pentatonic, ascending C#3 → B4 | rings, bursts, polygons, circles, rays, blooms, spirals, ripples, shards |
+| Key | Sound | Visual |
+| :-: | --- | --- |
+| `A` | C&#9839;3 | expanding rings |
+| `S` | E3 | particle burst |
+| `D` | F&#9839;3 | rotating polygons |
+| `F` | G&#9839;3 | popping circle |
+| `G` | B3 | radiating rays |
+| `H` | C&#9839;4 | soft bloom |
+| `J` | E4 | unwinding spiral |
+| `K` | G&#9839;4 | water ripple |
+| `L` | B4 | scattering shards |
 | `Q` | kick | orbiting dots |
 | `W` | hat | comet |
 | `E` | tom | flower petals |
 
-On phones and tablets a tappable pad grid replaces the keyboard.
+…or click/tap the canvas for a surprise at your cursor.
 
-## Local development
+## 🚀 Quick start
 
 ```sh
 npm install
@@ -26,28 +55,45 @@ npm run build      # type-check + production build to dist/
 npm run preview    # serve the production build locally
 ```
 
-## Adding a key
+## 🛠 How it works
 
-Everything about a pad — key, label, color, shape, sound — lives in one entry in
-[`src/config/soundMap.ts`](src/config/soundMap.ts). Add one line to `PADS` (reusing any
-existing shape) and the keyboard handler and mobile pad grid pick it up automatically.
-New shapes are one small class in `src/visuals/shapes/` plus a case in its `index.ts` factory.
+Everything about a pad — key, label, color, shape, sound — is one line in
+[`src/config/soundMap.ts`](src/config/soundMap.ts); the keyboard handler, key strip,
+mobile pads, visuals, and audio all derive from it. Visuals run through a single
+p5.js instance ([`src/visuals/visualEngine.ts`](src/visuals/visualEngine.ts)) whose
+draw loop paints a translucent background wash for motion trails, then renders every
+animation in additive blend mode so overlapping shapes literally sum into brighter
+light. Audio is a lazy Tone.js graph ([`src/audio/soundEngine.ts`](src/audio/soundEngine.ts)):
+a polyphonic synth plus kick/hat/tom, all feeding delay → reverb → limiter.
 
-## Deploying to Vercel (free)
+**Adding a key** is a one-line edit to `PADS` in `soundMap.ts`. A new shape is one
+small class in [`src/visuals/shapes/`](src/visuals/shapes/) plus a case in its factory.
 
-The app is a static Vite SPA — no config needed; Vercel auto-detects everything.
+## ☁️ Deploying to Vercel (free)
 
-**Via the dashboard (recommended):**
+The app is a static Vite SPA — Vercel auto-detects everything, no config needed.
 
 1. Push the repo to GitHub.
-2. Go to [vercel.com](https://vercel.com), sign in with GitHub, and click **Add New… → Project**.
-3. Import the `lappal` repo. The framework is auto-detected as Vite.
-4. Click **Deploy**. The site goes live at `lappal-*.vercel.app` and redeploys automatically on every push to `main`.
+2. Go to [vercel.com](https://vercel.com), sign in with GitHub, **Add New… → Project**.
+3. Import the `lappal` repo — the framework is auto-detected as Vite.
+4. **Deploy**. The site goes live at `lappal-*.vercel.app` and redeploys on every push to `main`.
 
-**Via the CLI:**
+<details>
+<summary>Prefer the CLI?</summary>
 
 ```sh
 npm i -g vercel
 vercel          # accept the defaults
 vercel --prod
 ```
+
+</details>
+
+## 🎨 Branding
+
+The full logo set lives in [`branding/`](branding/): icon mark, dark & light lockups,
+wordmark, and the README banner — all hand-built SVG in the app's palette.
+
+| | |
+| --- | --- |
+| ![mark](branding/lappal-mark.svg) | ![logo](branding/lappal-logo.svg) |
